@@ -1,0 +1,24 @@
+<div  class="container text-center mt-4">
+  <h2 class="my-5 font-weight-bold display-4">Template Screen</h2>
+  <div class="d-flex justify-content-center my-4">
+    <button class="btn btn-warning rounded-pill" (click)="downloadTemplate()">Download Template</button>
+  </div>
+
+  <div class="d-flex justify-content-center my-4">
+    <input type="file" #fileInput style="display: none" (change)="uploadTemplate($event)">
+    <button class="btn btn-warning rounded-pill " (click)="fileInput.click()">Upload Template</button>
+  </div>
+
+  <table *ngIf="uploadData.length > 0" class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th *ngFor="let header of uploadData[0] | keyvalue">{{ header.key }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of uploadData">
+        <td *ngFor="let cell of row | keyvalue">{{ cell.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

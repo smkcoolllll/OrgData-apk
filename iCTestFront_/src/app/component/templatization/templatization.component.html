@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center">
+  <form (submit)="onSubmit()" class="my-4">
+    <div class="d-flex">
+      <div class="col">
+        <h5 class="my-5 font-weight-bold display-4 " style="font-size: 28px; color: black;">Column name of org</h5>
+      </div>
+      <div class="col">
+        <h5 class="my-5 font-weight-bold display-4" style="font-size: 28px; color: black;">Column name in db (ReadOnly)</h5>
+      </div>
+    </div>
+    <div *ngFor="let field of formFields" class="form-group row">
+      <div class="col mb-2">
+        <input type="text" id="{{field.name}}" [(ngModel)]="formData[field.name]" name="{{field.name}}" class="form-control bg-primary" style="font-size: 16px; font-weight: bold; color: white;">
+      </div>
+      <div class="col mb-2">
+        <input type="text" id="{{field.value}}" [(ngModel)]="formData[field.value]" name="{{field.value}}" class="form-control bg-secondary" style="font-size: 16px; font-weight: bold; color: white;">
+      </div>
+    </div>
+    <div class="form-group row mt-4">
+      <div class="col text-center">
+        <button type="button" (click)="addField()" class="btn btn-primary">+</button>
+      </div>
+      <div class="col text-center">
+        <button type="submit" (click)="onSubmit()" class="btn btn-primary" >Next >></button>
+      </div>
+    </div>
+  </form>
+</div>
